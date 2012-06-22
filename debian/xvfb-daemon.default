@@ -1,0 +1,12 @@
+# Defaults for xvfb-daemon initscript
+# sourced by /etc/init.d/xvfb-daemon
+# installed at /etc/default/xvfb-daemon by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# Additional options that are passed to the Daemon.
+DISPLAY_NUMBER=99
+DAEMON_OPTS=":$DISPLAY_NUMBER -screen 0 800x600x16 -ac -pn -noreset"
+RUN=yes

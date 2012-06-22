@@ -1,0 +1,5 @@
+# For configuring the server options
+etc/default
+
+# For logging the server actions
+var/log/xvfb-daemon

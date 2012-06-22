@@ -1,0 +1,23 @@
+Source: xvfb-daemon
+Section: x11
+Priority: extra
+Maintainer: Jeffery Fernandez <jeffery@fernandez.net.au>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: xvfb-daemon
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, xvfb
+Description: A Daemon to control the running on Xvfb
+ Xvfb provides an X server that can run on machines with no display hardware and
+ no physical input devices. It emulates a dumb framebuffer using virtual memory.
+ .
+ The primary use of this server was intended to be server testing, but other
+ novel uses for it have been found, including testing clients against unusual
+ depths and screen configurations, doing batch processing with Xvfb as a
+ background rendering engine, load testing, as an aid to porting the X server to
+ a new platform, and providing an unobtrusive way to run applications that don't
+ really need an X server but insist on having one anyway.
+ .
+ This daemon is used to run the Xvfb server as a daemon so we can run virtual
+ environments for running Selenium UI tests using selenium-server

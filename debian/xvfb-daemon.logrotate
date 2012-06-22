@@ -1,0 +1,9 @@
+/var/log/xvfb-daemon/xvfb-daemon.log {
+        weekly
+        copytruncate
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+}
