@@ -17,7 +17,6 @@ DAEMON=/usr/bin/Xvfb # Introduce the server's location here
 DAEMON_WRAPPER=$DAEMON
 NAME=xvfb-daemon              # Introduce the short server's name here
 DESC="X Server Virtual Frame buffer"              # Introduce a short description here
-LOGDIR=/var/log/xvfb-daemon  # Log directory to use
 
 PIDFILE=/var/run/$NAME.pid 
 
@@ -36,7 +35,6 @@ DODTIME=10              # Time to wait for the server to die, in seconds
                         # let some servers to die gracefully and
                         # 'restart' will not work
                         
-LOGFILE=$LOGDIR/$NAME.log  # Server logfile
 DAEMONUSER=root   # Users to run the daemons as. If this value
                         # is set start-stop-daemon will chuid the server
 
@@ -96,12 +94,12 @@ running() {
 start_server() {
 # Start the process using the wrapper
         if [ -z "$DAEMONUSER" ] ; then
-            start-stop-daemon --start --quiet --make-pidfile --pidfile $PIDFILE \
+            start-stop-daemon --start --quiet --background --name $NAME --make-pidfile --pidfile $PIDFILE \
                         --exec $DAEMON -- $DAEMON_OPTS
             errcode=$?
         else
 # if we are using a daemonuser then change the user id
-            start-stop-daemon --start --quiet --make-pidfile --pidfile $PIDFILE \
+            start-stop-daemon --start --quiet --background --name $NAME --make-pidfile --pidfile $PIDFILE \
                         --chuid $DAEMONUSER \
                         --exec $DAEMON -- $DAEMON_OPTS
             errcode=$?
