@@ -1,3 +1,9 @@
+xvfb-daemon (1.0.1) unstable; urgency=low
+
+  * Renamed the debian scripts 
+
+ -- Jeffery Fernandez <jeffery@fernandez.net.au>  Mon, 25 Jun 2012 20:51:37 +1000
+
 xvfb-daemon (1.0.0) unstable; urgency=low
 
   * Initial Release.
